@@ -60,7 +60,7 @@ def time_weighted_average(dataframe,w1 = 30,w2 = 21 ,w3 = 19, w4 = 17 ,w5 = 13):
 time_weighted_average(df)
 #4.6299
 
-#normal average was 4.5875 so we made a huge difference by using time weighted average.
+#normal average was 4.5875 so we made a considerable difference by using time weighted average.
 
 
 
@@ -136,5 +136,10 @@ def wilson_lower_bound(up, down, confidence=0.95):
 
 df["wilson_lower_bound"] = df.apply(lambda x: wilson_lower_bound(x["helpful_yes"], x["helpful_no"]), axis=1)
 df.sort_values("wilson_lower_bound", ascending=False).head(20)
+
+#         reviewerID        asin                          reviewerName       helpful                                         reviewText  overall                                            summary  unixReviewTime  reviewTime  day_diff  helpful_yes  total_vote  helpful_no  up_down_ratio  wilson_lower_bound
+#2031  A12B7ZMXFI6IXY  B007WTAJTO                  Hyoun Kim "Faluzure"  [1952, 2020]  [[ UPDATE - 6/19/2014 ]]So my lovely wife boug...  5.00000  UPDATED - Great w/ Galaxy S4 & Galaxy Tab 4 10...      1367366400  2013-01-05       702         1952        2020          68        0.96634             0.95754
+#3449   AOEAD7DPLZE53  B007WTAJTO                     NLee the Engineer  [1428, 1505]  I have tested dozens of SDHC and micro-SDHC ca...  5.00000  Top of the class among all (budget-priced) mic...      1348617600  2012-09-26       803         1428        1505          77        0.94884             0.93652
+#4212   AVBMZZAFEKO58  B007WTAJTO                           SkincareCEO  [1568, 1694]  NOTE:  please read the last update (scroll to ...  1.00000  1 Star reviews - Micro SDXC card unmounts itse...      1375660800  2013-05-08       579         1568        1694         126        0.92562             0.91214
 
 
